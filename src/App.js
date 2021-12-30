@@ -2,6 +2,9 @@ import React, {Component} from 'react'
 import './App.css';
 import Card from './components/card-component/Card';
 import CardGrid from './components/card-grid-component/CardGrid';
+import Header from './components/header-component/Header';
+import {Search} from './components/search-component/search.jsx'
+import './img/logo-header.png'
 
 
 class App extends Component{
@@ -10,8 +13,10 @@ class App extends Component{
 
     this.state = {
       pokemons: [],
+      searchField: ''
     }
   // console.log(this.state.pokemons)
+  // this.handleChange = this.handleChange.bind(this)  // no need to use bind if we implement handleChanche using an arrow function
   }
   componentDidMount(){
 
@@ -36,13 +41,29 @@ class App extends Component{
       })
     })
   }
+
+  handleChange = e => {
+    this.setState({searchField: e.target.value})
+  }
  
   render() {  
+
+    const { pokemons, searchField } = this.state
+
+    const filteredPokemons = pokemons.filter(pokemon => pokemon.name.toLowerCase().includes(searchField.toLowerCase()))
+
     return (
       <div className="App">
        {
          <>
-         <CardGrid pokemonInfo={this.state.pokemons}/>
+         <Header/>
+            <Search
+              placeholder='search pokemons'
+              handleChange={this.handleChange}
+            />
+            <CardGrid 
+              pokemonInfo={filteredPokemons}
+            />
          </>
        }
       </div>

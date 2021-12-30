@@ -4,8 +4,10 @@ import './card.styles.css'
 const Card = ({name, image, id, type}) => {
     return (
         <div className='card-container'>
-        <h1>{name}</h1>
-         <img src={image}/>
+            <div className='image-container'>
+                 <img src={image}/>
+            </div>
+        <h2>{name}</h2>
         <p>{type}</p> 
         </div>
     )
