@@ -1,9 +1,27 @@
 .header{
-    
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
 }
 
 .headerImg{
-    max-width: 100%;
+    max-width: 50%;
     max-height: auto;
     margin-top: 20px;
+}
+
+.pokeball{
+    max-width: 15%;
+    max-height: auto;
+    margin-top: 30px;
+    padding-left: 15px;
+    transform: rotate(-30deg);
+}
+.pokeball-left{
+    max-width: 15%;
+    max-height: auto;
+    margin-top: 30px;
+    padding-left: 15px;
+    transform: rotate(30deg) scaleX(-1);
 }
